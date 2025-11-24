@@ -1,0 +1,9 @@
+n = int(input())  # количество школьников
+k = int(input())  # количество мандаринов
+
+mandarins_per_student = k // n
+
+mandarins_left = k % n
+
+print(mandarins_per_student)
+print(mandarins_left)
