@@ -1,0 +1,35 @@
+import math
+
+def calculate_euclidean_distance():
+    """
+    Вычисляет евклидово расстояние между двумя точками (x1, y1) и (x2, y2).
+    Координаты вводятся пользователем построчно.
+    """
+    print("--- Расчет евклидова расстояния между двумя точками ---")
+    print("Пожалуйста, введите координаты точек по очереди.")
+
+    try:
+        x1 = float(input("Введите x1: "))
+        y1 = float(input("Введите y1: "))
+        x2 = float(input("Введите x2: "))
+        y2 = float(input("Введите y2: "))
+    except ValueError:
+        print("Ошибка: Пожалуйста, вводите только действительные числа (числа с десятичной точкой или без).")
+        return 
+
+    delta_x = x1 - x2
+    delta_y = y1 - y2
+
+    delta_x_squared = delta_x ** 2  
+    delta_y_squared = delta_y ** 2  
+
+    sum_of_squares = delta_x_squared + delta_y_squared
+
+    distance = math.sqrt(sum_of_squares)
+
+    print(f"\nКоординаты первой точки: ({x1}, {y1})")
+    print(f"Координаты второй точки: ({x2}, {y2})")
+    print(f"Евклидово расстояние между точками: {distance}")
+
+if __name__ == "__main__":
+    calculate_euclidean_distance()
