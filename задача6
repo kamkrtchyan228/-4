@@ -1,0 +1,42 @@
+import math
+
+def calculate_trig_expression():
+    """
+    Вычисляет значение тригонометрического выражения sin(x) + cos(x) + tg^2(x)
+    для заданного угла x в градусах.
+    """
+    print("--- Вычисление тригонометрического выражения sin(x) + cos(x) + tg^2(x) ---")
+
+    try:
+        x_degrees_str = input("Введите угол x в градусах: ")
+        x_degrees = float(x_degrees_str)
+    except ValueError:
+        print("Ошибка: Пожалуйста, вводите действительное число для угла.")
+        return 
+
+    x_radians = math.radians(x_degrees)
+
+    try:
+        sin_x = math.sin(x_radians)
+        cos_x = math.cos(x_radians)
+
+        tan_x = math.tan(x_radians)
+        tg_squared_x = tan_x ** 2
+
+        result = sin_x + cos_x + tg_squared_x
+
+        print(f"\nВы ввели угол x = {x_degrees}")
+        print(f"sin({x_degrees}) = {sin_x}")
+        print(f"cos({x_degrees}) = {cos_x}")
+        print(f"tg^2({x_degrees}) = {tg_squared_x}")
+        print(f"Значение тригонометрического выражения: {result}")
+
+    except ValueError as e:
+        print(f"\nОшибка при вычислении: {e}")
+        print("Возможно, тангенс для введенного угла не определен (например, 90, 270, -90 градусов и т.д.).")
+    except OverflowError:
+        print("\nОшибка: Результат вычисления тангенса слишком велик (бесконечность).")
+        print("Это происходит для углов, где тангенс не определен (например, 90, 270 градусов и т.д.).")
+
+if __name__ == "__main__":
+    calculate_trig_expression()
